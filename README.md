@@ -43,6 +43,6 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ![](./screenshots/47216768984532848.jpg)
 ### 说明界面
 ![](./screenshots/111972737140426284.jpg)
-### 登录
+### 注册
 ![](./screenshots/752196389758269645.jpg)
 
