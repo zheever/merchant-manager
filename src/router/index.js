@@ -10,6 +10,7 @@ import Declare from '@/components/declare'
 import DishCard from '@/components/dish_card'
 import register from '@/components/register'
 import Login from '@/components/login'
+import MerchantInfo from '@/components/merchantInfo'
 
 Vue.use(Router)
 
@@ -52,6 +53,15 @@ export default new Router({
       iconCls: 'el-icon-message',
       children: [
         { path: '/definite_declare', component: Declare, name: '具体说明' }
+      ]
+    },
+    {
+      path: '/merchant',
+      name: '餐馆',
+      component: Home,
+      iconCls: 'el-icon-document',
+      children: [
+        { path: '/merchantInfo', component: MerchantInfo, name: '餐馆信息' }
       ]
     },
     {

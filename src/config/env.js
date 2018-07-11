@@ -10,7 +10,7 @@ let baseImgPath
 let loginImgUrl = ''
 
 if (process.env.NODE_ENV === 'development') {
-  baseUrl = 'https://private-ab6e0-canyonsysu1.apiary-mock.com/v1'
+  baseUrl = 'http://192.168.43.147:7070/v1'
   loginImgUrl = 'http://localhost:3001'
 } else {
   baseUrl = 'https://kangblog.top/v1'

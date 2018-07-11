@@ -25,12 +25,12 @@
 }
 .dish_detail_container {
   margin: 10px;
-  width: 530px;
+  width: 350px;
   .image {
     float: left;
-    width: 250px;
-    height: 250px;
-    margin: 20px;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
   }
   .info_box {
     float: left;
@@ -41,7 +41,7 @@
     }
     p {
       text-align: left;
-      width: 200px;
+      width: 140px;
       height: 20px;
       overflow: hidden;
     }

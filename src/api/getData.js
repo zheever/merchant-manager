@@ -100,7 +100,7 @@ export const getCategory = restaurantId => fetch('/menufood/categorys')
  * 添加食品种类
  */
 
-export const addCategory = data => fetch('/shopping/addcategory', data, 'POST')
+export const addCategory = data => fetch('/tags', data, 'POST')
 
 /**
  * 添加食品
@@ -124,7 +124,7 @@ export const getResturants = data => fetch('/shopping/restaurants', data)
  * 获取餐馆详细信息
  */
 
-export const getResturantDetail = restaurantId => fetch('/shopping/restaurant/' + restaurantId)
+export const getResturantDetail = () => fetch('/restaurants?name=餐馆名字')
 
 /**
  * 获取餐馆数量
@@ -178,7 +178,7 @@ export const updateFood = data => fetch('/shopping/v2/updatefood', data, 'POST')
  * 删除食品
  */
 
-export const deleteFood = foodId => fetch('/menufood/delete' + foodId, {}, 'DELETE')
+export const deleteFood = data => fetch('/menufood/delete', data, 'POST')
 
 /**
  * 获取用户列表
@@ -196,7 +196,7 @@ export const getUserCount = data => fetch('/v1/users/count', data)
  * 获取订单列表
  */
 
-export const getOrderList = data => fetch('/bos/orders', data)
+export const getOrderList = data => fetch('/orders', data)
 
 /**
  * 获取订单数量

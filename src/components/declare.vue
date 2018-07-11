@@ -2,7 +2,6 @@
   <el-card class="box-card">
     <div slot="header" class="clearfix">
       <span><strong>说明</strong></span>
-      <el-button style="float: right; padding: 3px 0" type="text">编辑</el-button>
     </div>
     <div class='item text'>
       <p>商家后台管理系统</p>

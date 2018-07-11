@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import {getCategory, addFood} from '@/api/getData'
+import {getCategory, addFood, addCategory} from '@/api/getData'
 export default {
   data () {
     return {
@@ -77,6 +77,18 @@ export default {
         ]
       },
       foodForm: {
+        name: '',
+        detail: '',
+        src: '',
+        price: '',
+        categorys: ''
+      },
+      categoryFormReset: {
+        categorySelect: '',
+        name: '',
+        description: ''
+      },
+      foodFormReset: {
         name: '',
         detail: '',
         src: '',
@@ -130,11 +142,45 @@ export default {
             type: 'success',
             message: '添加成功'
           })
+          this.resetCategoryForm()
+          this.resetFoodForm()
         } else {
           this.$message({
             type: 'error',
             message: '添加失败'
           })
+        }
+      })
+    },
+    resetCategoryForm () {
+      this.categoryForm = Object.assign({}, this.categoryFormReset)
+    },
+    resetFoodForm () {
+      this.foodForm = Object.assign({}, this.foodFormReset)
+    },
+    async submitcategoryForm (formName) {
+      this.$refs[formName].validate(async (valid) => {
+        const res = await addCategory({
+          tag: this.categoryForm.name
+        })
+        if (res.data.status === 1) {
+          this.$message({
+            type: 'success',
+            message: '添加成功'
+          })
+          this.resetCategoryForm()
+        } else {
+          this.$message({
+            type: 'error',
+            message: '添加失败'
+          })
+        }
+        try {
+          let res = await getCategory()
+          console.log(res.data)
+          this.categoryList = res.data
+        } catch (err) {
+          console.log(err)
         }
       })
     }

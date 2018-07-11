@@ -25,8 +25,8 @@
               <img class='head-img' :src="this.sysUserAvatar" />
             </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>我的消息</el-dropdown-item>
-              <el-dropdown-item>设置</el-dropdown-item>
+              <el-dropdown-item @click.native="toDeclarePage">说明</el-dropdown-item>
+              <el-dropdown-item @click.native="toSettingPage">设置</el-dropdown-item>
               <el-dropdown-item divided @click.native="logout">退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
@@ -78,6 +78,12 @@ export default{
         console.log('log off error')
         console.log(err)
       })
+    },
+    toSettingPage: function () {
+      this.$router.push('/manager')
+    },
+    toDeclarePage: function () {
+      this.$router.push('/definite_declare')
     }
   }
 }

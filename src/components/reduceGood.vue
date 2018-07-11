@@ -79,7 +79,7 @@
 </style>
 <script>
 import { Loading } from 'element-ui'
-import {getMenu} from '@/api/getData'
+import {getMenu, deleteFood} from '@/api/getData'
 export default {
   data () {
     return {
@@ -111,6 +111,30 @@ export default {
         end = this.tableData.length - 1
       }
       this.pageData = this.tableData.slice(start, end)
+    },
+    async handleDelete (index, row) {
+      let res = await deleteFood({
+        id: row.id
+      })
+      if (res.data.status === 1) {
+        this.$message({
+          type: 'success',
+          message: '成功删除'
+        })
+      } else {
+        this.$message({
+          type: 'error',
+          message: '删除失败'
+        })
+      }
+      try {
+        const res = await getMenu()
+        this.tableData = res.data
+        let end = this.tableData.length > 10 ? 10 : this.tableData.length
+        this.pageData = this.tableData.slice(0, end)
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
 }
